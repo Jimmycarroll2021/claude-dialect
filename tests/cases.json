@@ -1,0 +1,14 @@
+[
+ {"id":"L1","expect":1,"prompt":"list every Python file in this repo that imports requests"},
+ {"id":"L2","expect":1,"prompt":"extract the email addresses from these 200 support tickets into a CSV"},
+ {"id":"E1","expect":2,"prompt":"write a function that parses ISO 8601 dates with timezones"},
+ {"id":"E2","expect":2,"prompt":"draft a product description for a waterproof cycling jacket"},
+ {"id":"B1","expect":3,"prompt":"in src/api/users.py rename get_user to fetch_user, update its two call sites in src/routes.py, then run pytest tests/test_users.py"},
+ {"id":"B2","expect":3,"prompt":"change the default timeout in config.yaml from 30 to 60 seconds and run tests/test_config.py"},
+ {"id":"C1","expect":4,"prompt":"the checkout tests fail randomly on CI, find out why and fix it"},
+ {"id":"C2","expect":4,"prompt":"review this 40-file PR for concurrency bugs before I merge it"},
+ {"id":"H1","expect":5,"prompt":"research the Australian rental market over the last 10 years and produce a finished 20-page report"},
+ {"id":"H2","expect":5,"prompt":"do deep multistep research on vector databases over several hours and deliver a final decision document"},
+ {"id":"T1","expect":6,"prompt":"what's the difference between a mutex and a semaphore?"},
+ {"id":"T2","expect":6,"prompt":"is it affect or effect in 'the change will ___ sales'?"}
+]
