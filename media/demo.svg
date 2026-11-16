@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" width="820" height="300" role="img" aria-labelledby="t">
+  <title id="t">Demo: a prompt is routed to Opus at medium effort as class 4 complex</title>
+  <defs>
+    <style>
+      text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 16px; fill: #E6EDF3; }
+      .dim { fill: #8B949E; }
+      .prompt { fill: #F97316; font-weight: 700; }
+      .opus { fill: #F97316; font-weight: 700; }
+      .ok { fill: #3FB950; }
+      .cover { transform-box: fill-box; transform-origin: right center; animation: shrink 12s infinite; }
+      .cursor { animation: move 12s infinite; fill: #E6EDF3; }
+      .route { opacity: 0; animation: show1 12s infinite; }
+      .result { opacity: 0; animation: show2 12s infinite; }
+      .all { animation: fade 12s infinite; }
+      @keyframes move {
+        0%, 4% { transform: translateX(0); animation-timing-function: steps(63, end); }
+        30%, 100% { transform: translateX(604.8px); }
+      }
+      @keyframes shrink {
+        0%, 4% { transform: scaleX(1); animation-timing-function: steps(63, end); }
+        30%, 100% { transform: scaleX(0); }
+      }
+      @keyframes show1 { 0%, 36% { opacity: 0; } 38%, 100% { opacity: 1; } }
+      @keyframes show2 { 0%, 52% { opacity: 0; } 54%, 100% { opacity: 1; } }
+      @keyframes fade { 0%, 90% { opacity: 1; } 97%, 100% { opacity: 0; } }
+    </style>
+  </defs>
+  <rect x="2" y="2" width="816" height="296" rx="12" fill="#0D1117"/>
+  <path d="M2 14 a12 12 0 0 1 12 -12 h792 a12 12 0 0 1 12 12 v26 h-816 z" fill="#161B22"/>
+  <circle cx="26" cy="22" r="6" fill="#FF5F56"/><circle cx="46" cy="22" r="6" fill="#FFBD2E"/><circle cx="66" cy="22" r="6" fill="#27C93F"/>
+  <text class="dim" x="410" y="27" text-anchor="middle" style="font-size:14px">claude</text>
+  <g class="all">
+    <text class="prompt" x="30" y="86">&gt;</text>
+    <g><text x="62" y="86" textLength="604.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">the checkout tests fail randomly on CI, find out why and fix it</text></g>
+    <rect class="cover" x="62" y="64" width="604.8" height="32" fill="#0D1117"/>
+    <rect class="cursor" x="62" y="71" width="9" height="19"/>
+    <g class="route">
+      <text class="dim" x="30" y="136">Route: <tspan class="opus">opus</tspan> · medium · class 4 complex</text>
+    </g>
+    <g class="result">
+      <text class="ok" x="30" y="186">✓</text>
+      <text x="52" y="186">Opus agent: race in the shared test DB setup, fixed</text>
+      <text class="dim" x="52" y="212">20/20 reruns pass</text>
+    </g>
+  </g>
+  <text class="dim" x="790" y="284" text-anchor="end" style="font-size:14px">illustrative example</text>
+  <rect x="2" y="2" width="816" height="296" rx="12" fill="none" stroke="#30363D" stroke-width="2"/>
+</svg>

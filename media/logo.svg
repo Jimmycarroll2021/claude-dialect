@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">claude-dialect logo: a prompt chevron splitting into four routes</title>
+  <rect x="4" y="4" width="192" height="192" rx="44" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+  <path d="M40 70 L72 100 L40 130" fill="none" stroke="#F8FAFC" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke-width="8" stroke-linecap="round">
+    <path d="M88 100 C 118 100, 116 48, 150 48" stroke="#14B8A6"/>
+    <path d="M88 100 C 118 100, 116 80, 150 80" stroke="#3B82F6"/>
+    <path d="M88 100 C 118 100, 116 120, 150 120" stroke="#F97316"/>
+    <path d="M88 100 C 118 100, 116 152, 150 152" stroke="#A855F7"/>
+  </g>
+  <circle cx="156" cy="48" r="11" fill="#14B8A6"/>
+  <circle cx="156" cy="80" r="11" fill="#3B82F6"/>
+  <circle cx="156" cy="120" r="11" fill="#F97316"/>
+  <circle cx="156" cy="152" r="11" fill="#A855F7"/>
+</svg>

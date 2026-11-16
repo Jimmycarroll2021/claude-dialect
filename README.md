@@ -1,4 +1,16 @@
-# claude-dialect
+<div align="center">
+  <img src="media/logo.svg" alt="claude-dialect logo" width="200" height="200">
+
+  <h1>🗣️ claude-dialect</h1>
+  <h3><em>Every prompt, routed to the right Claude model — in its own dialect.</em></h3>
+
+  <p>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/Jimmycarroll2021/claude-dialect?style=flat-square" alt="License: MIT"></a>
+    <a href="https://github.com/Jimmycarroll2021/claude-dialect/stargazers"><img src="https://img.shields.io/github/stars/Jimmycarroll2021/claude-dialect?style=flat-square" alt="GitHub stars"></a>
+    <a href="https://github.com/Jimmycarroll2021/claude-dialect/commits/main"><img src="https://img.shields.io/github/last-commit/Jimmycarroll2021/claude-dialect?style=flat-square" alt="Last commit"></a>
+    <img src="https://img.shields.io/badge/Claude%20Code-add--on-D97757?style=flat-square" alt="Claude Code add-on">
+  </p>
+</div>
 
 Every prompt you type into Claude Code gets sized, sent to the Claude model that fits it, and rewritten in that model's own dialect.
 
@@ -10,20 +22,15 @@ Every prompt you type into Claude Code gets sized, sent to the Claude model that
 
 Each hand-off prompt is rewritten using that model's prompting guide from Anthropic's docs. For example, Opus gets "double-check" lines removed because it verifies on its own, while Sonnet gets told to stop when the work is done instead of adding extras.
 
+<div align="center">
+  <img src="media/demo.svg" alt="Demo: a prompt about flaky checkout tests is routed to Opus, medium effort, class 4 complex" width="820">
+</div>
+
 ## How it works
 
-```mermaid
-flowchart TD
-    A[You type a prompt] --> B[UserPromptSubmit hook<br/>adds the routing table to every message]
-    B --> C[Session works out intent<br/>and complexity class 1-6]
-    C --> D{Class 6 chat, or routed model<br/>same as this session's?}
-    D -- yes --> E[Do it in this session]
-    D -- no --> F[Rewrite the brief using<br/>references/&lt;model&gt;.md]
-    F --> G[Spawn an agent on the routed<br/>model and effort, whatever the size]
-    G --> H[Session checks the result]
-    E --> I[Reply: outcome first]
-    H --> I
-```
+<div align="center">
+  <img src="media/how-it-works.svg" alt="Flow: prompt, hook adds routing table, class 1-6, same model or chat?, do it here or rewrite in the model's dialect and spawn an agent, check, reply" width="760">
+</div>
 
 | Piece | Installed to | Job |
 |---|---|---|

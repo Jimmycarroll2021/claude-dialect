@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" width="900" height="840" role="img" aria-labelledby="t d">
+  <title id="t">How claude-dialect works</title>
+  <desc id="d">A prompt passes through a hook that adds the routing table, is sized into class 1 to 6, then either runs in the current session or is rewritten in the target model's dialect and handed to an agent on that model. The session checks the result and replies.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94A3B8"/>
+    </marker>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: #E2E8F0; font-size: 16px; }
+      .s { fill: #94A3B8; font-size: 14px; }
+      .b { font-weight: 600; }
+      .box { fill: #1E293B; stroke: #475569; stroke-width: 2; }
+      .ln { stroke: #94A3B8; stroke-width: 2.5; fill: none; }
+      .chip { stroke-width: 2; }
+      .ct { font-size: 15px; font-weight: 600; fill: #F8FAFC; }
+      .cs { font-size: 14px; fill: #E2E8F0; }
+    </style>
+  </defs>
+  <rect width="900" height="840" rx="18" fill="#0F172A"/>
+
+  <!-- 1 prompt -->
+  <rect class="box" x="325" y="28" width="250" height="48" rx="24"/>
+  <text class="b" x="450" y="58" text-anchor="middle">You type a prompt</text>
+  <path class="ln" d="M450 76 V104" marker-end="url(#ah)"/>
+
+  <!-- 2 hook -->
+  <rect class="box" x="230" y="108" width="440" height="64" rx="12"/>
+  <text class="b" x="450" y="135" text-anchor="middle">UserPromptSubmit hook</text>
+  <text class="s" x="450" y="157" text-anchor="middle">adds the routing table to every message</text>
+  <path class="ln" d="M450 172 V200" marker-end="url(#ah)"/>
+
+  <!-- 3 classes -->
+  <rect class="box" x="30" y="204" width="840" height="130" rx="12"/>
+  <text class="b" x="450" y="232" text-anchor="middle">Session works out intent and complexity class 1-6</text>
+  <g>
+    <rect class="chip" x="48" y="250" width="124" height="68" rx="10" fill="#14B8A6" fill-opacity="0.22" stroke="#14B8A6"/>
+    <text class="ct" x="110" y="276" text-anchor="middle">1 lookup</text><text class="cs" x="110" y="300" text-anchor="middle">Haiku</text>
+    <rect class="chip" x="184" y="250" width="124" height="68" rx="10" fill="#3B82F6" fill-opacity="0.22" stroke="#3B82F6"/>
+    <text class="ct" x="246" y="276" text-anchor="middle">2 everyday</text><text class="cs" x="246" y="300" text-anchor="middle">Sonnet</text>
+    <rect class="chip" x="320" y="250" width="124" height="68" rx="10" fill="#3B82F6" fill-opacity="0.22" stroke="#3B82F6"/>
+    <text class="ct" x="382" y="276" text-anchor="middle">3 bounded</text><text class="cs" x="382" y="300" text-anchor="middle">Sonnet</text>
+    <rect class="chip" x="456" y="250" width="124" height="68" rx="10" fill="#F97316" fill-opacity="0.22" stroke="#F97316"/>
+    <text class="ct" x="518" y="276" text-anchor="middle">4 complex</text><text class="cs" x="518" y="300" text-anchor="middle">Opus</text>
+    <rect class="chip" x="592" y="250" width="124" height="68" rx="10" fill="#A855F7" fill-opacity="0.22" stroke="#A855F7"/>
+    <text class="ct" x="654" y="276" text-anchor="middle">5 long-horizon</text><text class="cs" x="654" y="300" text-anchor="middle">Fable</text>
+    <rect class="chip" x="728" y="250" width="124" height="68" rx="10" fill="#64748B" fill-opacity="0.25" stroke="#94A3B8"/>
+    <text class="ct" x="790" y="276" text-anchor="middle">6 chat</text><text class="cs" x="790" y="300" text-anchor="middle">this session</text>
+  </g>
+  <path class="ln" d="M450 334 V366" marker-end="url(#ah)"/>
+
+  <!-- 4 decision -->
+  <path d="M450 370 L650 440 L450 510 L250 440 Z" fill="#1E293B" stroke="#475569" stroke-width="2"/>
+  <text class="b" x="450" y="432" text-anchor="middle">Class 6 chat, or same</text>
+  <text class="b" x="450" y="454" text-anchor="middle">model as this session?</text>
+
+  <!-- yes -->
+  <path class="ln" d="M250 440 H190 V556" marker-end="url(#ah)"/>
+  <text class="b" x="206" y="428">yes</text>
+  <!-- no -->
+  <path class="ln" d="M650 440 H690 V556" marker-end="url(#ah)"/>
+  <text class="b" x="654" y="428">no</text>
+
+  <!-- 5a do here -->
+  <rect class="box" x="40" y="560" width="300" height="84" rx="12"/>
+  <text class="b" x="190" y="596" text-anchor="middle">Do it in this session</text>
+  <text class="s" x="190" y="620" text-anchor="middle">no hand-off needed</text>
+
+  <!-- 5b rewrite + spawn -->
+  <rect class="box" x="400" y="560" width="460" height="130" rx="12"/>
+  <text class="b" x="630" y="592" text-anchor="middle">Rewrite the brief in that model's dialect</text>
+  <text class="b" x="630" y="617" text-anchor="middle">Spawn an agent on that model</text>
+  <g>
+    <circle cx="440" cy="660" r="8" fill="#14B8A6"/><text class="s" x="454" y="665">Haiku</text>
+    <circle cx="540" cy="660" r="8" fill="#3B82F6"/><text class="s" x="554" y="665">Sonnet</text>
+    <circle cx="650" cy="660" r="8" fill="#F97316"/><text class="s" x="664" y="665">Opus</text>
+    <circle cx="745" cy="660" r="8" fill="#A855F7"/><text class="s" x="759" y="665">Fable</text>
+  </g>
+  <path class="ln" d="M630 690 V716" marker-end="url(#ah)"/>
+
+  <!-- 6 check -->
+  <rect class="box" x="480" y="720" width="300" height="48" rx="24"/>
+  <text class="b" x="630" y="750" text-anchor="middle">Session checks the result</text>
+
+  <!-- 7 reply -->
+  <path class="ln" d="M190 644 V796 H300" marker-end="url(#ah)"/>
+  <path class="ln" d="M630 768 V796 H600" marker-end="url(#ah)"/>
+  <rect x="304" y="772" width="292" height="48" rx="24" fill="#E2E8F0"/>
+  <text class="b" x="450" y="802" text-anchor="middle" style="fill:#0F172A">Reply: outcome first</text>
+</svg>
