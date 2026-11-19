@@ -26,12 +26,12 @@
   <!-- 2 hook -->
   <rect class="box" x="230" y="108" width="440" height="64" rx="12"/>
   <text class="b" x="450" y="135" text-anchor="middle">UserPromptSubmit hook</text>
-  <text class="s" x="450" y="157" text-anchor="middle">adds the routing table to every message</text>
+  <text class="s" x="450" y="157" text-anchor="middle">adds the rules and class table to every message</text>
   <path class="ln" d="M450 172 V200" marker-end="url(#ah)"/>
 
   <!-- 3 classes -->
   <rect class="box" x="30" y="204" width="840" height="130" rx="12"/>
-  <text class="b" x="450" y="232" text-anchor="middle">Session works out intent and complexity class 1-6</text>
+  <text class="b" x="450" y="232" text-anchor="middle">Session sizes the work: class 1-6 sets the effort</text>
   <g>
     <rect class="chip" x="48" y="250" width="124" height="68" rx="10" fill="#14B8A6" fill-opacity="0.22" stroke="#14B8A6"/>
     <text class="ct" x="110" y="276" text-anchor="middle">1 lookup</text><text class="cs" x="110" y="300" text-anchor="middle">Haiku</text>
@@ -50,25 +50,25 @@
 
   <!-- 4 decision -->
   <path d="M450 370 L650 440 L450 510 L250 440 Z" fill="#1E293B" stroke="#475569" stroke-width="2"/>
-  <text class="b" x="450" y="432" text-anchor="middle">Class 6 chat, or same</text>
-  <text class="b" x="450" y="454" text-anchor="middle">model as this session?</text>
+  <text class="b" x="450" y="432" text-anchor="middle">Does a hand-off pay?</text>
+  <text class="b" x="450" y="454" text-anchor="middle">bulk · long research · parallel · check</text>
 
   <!-- yes -->
   <path class="ln" d="M250 440 H190 V556" marker-end="url(#ah)"/>
-  <text class="b" x="206" y="428">yes</text>
+  <text class="b" x="206" y="428">no</text>
   <!-- no -->
   <path class="ln" d="M650 440 H690 V556" marker-end="url(#ah)"/>
-  <text class="b" x="654" y="428">no</text>
+  <text class="b" x="654" y="428">yes</text>
 
   <!-- 5a do here -->
   <rect class="box" x="40" y="560" width="300" height="84" rx="12"/>
   <text class="b" x="190" y="596" text-anchor="middle">Do it in this session</text>
-  <text class="s" x="190" y="620" text-anchor="middle">no hand-off needed</text>
+  <text class="s" x="190" y="620" text-anchor="middle">at the class's effort</text>
 
   <!-- 5b rewrite + spawn -->
   <rect class="box" x="400" y="560" width="460" height="130" rx="12"/>
-  <text class="b" x="630" y="592" text-anchor="middle">Rewrite the brief in that model's dialect</text>
-  <text class="b" x="630" y="617" text-anchor="middle">Spawn an agent on that model</text>
+  <text class="b" x="630" y="592" text-anchor="middle">Brief: your words + key facts + dialect</text>
+  <text class="b" x="630" y="617" text-anchor="middle">Spawn an agent on the table's model</text>
   <g>
     <circle cx="440" cy="660" r="8" fill="#14B8A6"/><text class="s" x="454" y="665">Haiku</text>
     <circle cx="540" cy="660" r="8" fill="#3B82F6"/><text class="s" x="554" y="665">Sonnet</text>

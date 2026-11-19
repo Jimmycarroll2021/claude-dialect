@@ -55,8 +55,11 @@ Go straight to Fable only for class 5: it costs 2x Opus and 4x Sonnet. (MO)
 
 ## Hand-off rule (skill rule)
 
-- Class 6, or the routed model is the session's own model: do it in the session.
-- Otherwise spawn an agent on the routed model and effort, whatever the size of the task.
+Work in the session by default: a hand-off costs a fresh context, re-reading files and a brief, which only pays off for some work.
+
+- Hand off only for: bulk or context-flooding work (many files or items, long logs, wide searches) to the table's model; class 5 long-horizon work to Fable; independent parallel parts; an independent check before something goes public; or work that already fell short here at higher effort, to the next model up.
+- Class 6 chat is never handed off.
+- Brief: the request word for word, a short facts block, then the model file's additions. Follow-ups continue the same agent (SendMessage).
 
 ## Agent type
 

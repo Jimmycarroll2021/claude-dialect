@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 300" width="820" height="300" role="img" aria-labelledby="t">
-  <title id="t">Demo: a prompt is routed to Opus at medium effort as class 4 complex</title>
+  <title id="t">Demo: a long research request is handed to Fable at high effort as class 5 long-horizon</title>
   <defs>
     <style>
       text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace; font-size: 16px; fill: #E6EDF3; }
       .dim { fill: #8B949E; }
       .prompt { fill: #F97316; font-weight: 700; }
-      .opus { fill: #F97316; font-weight: 700; }
+      .fable { fill: #A855F7; font-weight: 700; }
       .ok { fill: #3FB950; }
       .cover { transform-box: fill-box; transform-origin: right center; animation: shrink 12s infinite; }
       .cursor { animation: move 12s infinite; fill: #E6EDF3; }
@@ -13,11 +13,11 @@
       .result { opacity: 0; animation: show2 12s infinite; }
       .all { animation: fade 12s infinite; }
       @keyframes move {
-        0%, 4% { transform: translateX(0); animation-timing-function: steps(63, end); }
-        30%, 100% { transform: translateX(604.8px); }
+        0%, 4% { transform: translateX(0); animation-timing-function: steps(58, end); }
+        30%, 100% { transform: translateX(556.8px); }
       }
       @keyframes shrink {
-        0%, 4% { transform: scaleX(1); animation-timing-function: steps(63, end); }
+        0%, 4% { transform: scaleX(1); animation-timing-function: steps(58, end); }
         30%, 100% { transform: scaleX(0); }
       }
       @keyframes show1 { 0%, 36% { opacity: 0; } 38%, 100% { opacity: 1; } }
@@ -31,16 +31,16 @@
   <text class="dim" x="410" y="27" text-anchor="middle" style="font-size:14px">claude</text>
   <g class="all">
     <text class="prompt" x="30" y="86">&gt;</text>
-    <g><text x="62" y="86" textLength="604.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">the checkout tests fail randomly on CI, find out why and fix it</text></g>
-    <rect class="cover" x="62" y="64" width="604.8" height="32" fill="#0D1117"/>
+    <g><text x="62" y="86" textLength="556.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">research 10 years of rental prices and write a full report</text></g>
+    <rect class="cover" x="62" y="64" width="556.8" height="32" fill="#0D1117"/>
     <rect class="cursor" x="62" y="71" width="9" height="19"/>
     <g class="route">
-      <text class="dim" x="30" y="136">Route: <tspan class="opus">opus</tspan> · medium · class 4 complex</text>
+      <text class="dim" x="30" y="136">Route: <tspan class="fable">fable</tspan> · high · class 5 long-horizon</text>
     </g>
     <g class="result">
       <text class="ok" x="30" y="186">✓</text>
-      <text x="52" y="186">Opus agent: race in the shared test DB setup, fixed</text>
-      <text class="dim" x="52" y="212">20/20 reruns pass</text>
+      <text x="52" y="186">Fable agent: report.md written, every figure sourced</text>
+      <text class="dim" x="52" y="212">small edits and checks stayed in this session</text>
     </g>
   </g>
   <text class="dim" x="790" y="284" text-anchor="end" style="font-size:14px">illustrative example</text>
