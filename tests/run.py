@@ -14,6 +14,11 @@ import subprocess
 import sys
 import tempfile
 
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from _installed import require_hook  # noqa: E402
+
+require_hook()
+
 here = pathlib.Path(__file__).parent
 label = sys.argv[1] if len(sys.argv) > 1 else "run"
 cases = json.loads((here / "cases.json").read_text())

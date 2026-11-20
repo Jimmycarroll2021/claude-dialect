@@ -70,6 +70,8 @@ cd claude-dialect
 ./install.sh
 ```
 
+Run it **from a normal terminal, not from inside Claude Code**. Claude Code's sandbox deliberately hides `~/.claude/hooks` and your settings, because hooks run outside the sandbox. If it is blocked, the installer stops before changing anything and says so.
+
 Then start a new Claude Code session. The installer is safe to rerun. It backs up `settings.json` and `CLAUDE.md` first, keeps any hooks you already have, and moves an existing `optimise-prompt` skill aside instead of overwriting it.
 
 Uninstall with `./uninstall.sh`. It removes only what the installer added.
@@ -81,7 +83,7 @@ python3 tests/run.py          # 12 sample prompts, dry run: checks the class pic
 python3 tests/delegation.py   # 6 real tasks in a temp folder: checks hand-offs AND the actual answers (~6 min, uses tokens)
 ```
 
-Both run `claude -p --model sonnet`. `delegation.py` checks that:
+Both run `claude -p --model sonnet`, and both refuse to start if the prompt hook isn't active (otherwise they would just measure plain Claude). `delegation.py` checks that:
 
 - **Small work stays put:** a git status check, a small script and a flaky-test fix are done in the session, and the fix must then pass 5 runs.
 - **Bulk work comes back right:** 200 support tickets must come back at least 98% correctly classified.

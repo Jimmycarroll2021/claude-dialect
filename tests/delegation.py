@@ -26,6 +26,11 @@ import subprocess
 import sys
 import tempfile
 
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from _installed import require_hook  # noqa: E402
+
+require_hook()
+
 root = pathlib.Path(tempfile.mkdtemp(prefix="claude-dialect-deleg-"))
 N = 200
 TOOLS = ("Agent,Task,SendMessage,Read,Write,Edit,Glob,Grep,"

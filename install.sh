@@ -7,6 +7,26 @@ C="$HOME/.claude"
 TS="$(date +%Y%m%d-%H%M%S)"
 command -v python3 >/dev/null || { echo "python3 is required"; exit 1; }
 command -v claude >/dev/null || echo "note: 'claude' CLI not on PATH; install Claude Code to use this"
+# Preflight: check every place we write BEFORE changing anything, so a blocked path
+# fails with a clear message instead of a half-finished install.
+blocked=()
+for d in "$C" "$C/skills" "$C/hooks" "$C/bin"; do
+  if [ -e "$d" ] && { [ ! -d "$d" ] || [ ! -w "$d" ]; }; then blocked+=("$d"); fi
+done
+for f in "$C/settings.json" "$C/CLAUDE.md"; do
+  if [ -e "$f" ] && { [ ! -f "$f" ] || [ ! -w "$f" ]; }; then blocked+=("$f"); fi
+done
+if [ ! -e "$C" ] && [ ! -w "$HOME" ]; then blocked+=("$HOME"); fi
+if [ ${#blocked[@]} -gt 0 ]; then
+  echo "claude-dialect: cannot install, these paths are blocked or not writable:"
+  printf '  %s\n' "${blocked[@]}"
+  if [ -n "${CLAUDECODE:-}" ]; then
+    echo "You are running inside Claude Code. Its sandbox hides ~/.claude/hooks and settings on purpose,"
+    echo "because hooks run outside the sandbox. Run ./install.sh from a normal terminal instead."
+  fi
+  echo "Nothing was changed."
+  exit 1
+fi
 mkdir -p "$C/skills" "$C/hooks" "$C/bin"
 
 if [ -d "$C/skills/optimise-prompt" ] && ! diff -rq "$SRC/skills/optimise-prompt" "$C/skills/optimise-prompt" >/dev/null 2>&1; then
